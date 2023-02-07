@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Nav.css';
 function Nav() {
     const [show, handleShow] = useState(false);
@@ -8,11 +8,13 @@ function Nav() {
         }else{
             handleShow(false);
         }
-    }
+    };
+
     useEffect( ()=> {
         window.addEventListener('scroll', transitionNavBar)
         return () => window.removeEventListener('scroll', transitionNavBar)
     }, []);
+
   return (
     <div className={`nav ${show && 'nav__black'}`}>
         <div className='nav__contents'>
