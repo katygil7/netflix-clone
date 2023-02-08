@@ -28,19 +28,20 @@ console.log(movie);
   return (
     <header className='banner' 
     style={{
-        backgroundImage: `url("https://res.cloudinary.com/practicaldev/image/fetch/s--THrf5Yjw--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n6brz4p7iq7j1mulo1nv.jpg")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundSize: "cover" , 
         backgroundPosition: "center center",
     }}>
         <div className='banner__contents'>
-            <h1 className='banner__title'>Movie Name</h1>
+            <h1 className='banner__title'>
+                {movie?.title || movie?.name || movie?.original_name}
+            </h1>
             <div className='banner__buttons'>
                 <button className='banner__button'>Play</button>
                 <button className='banner__button'>My List</button>
             </div>
             <h1 className='banner__description'>
-              {truncate (
-                `Test DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest Description`, 150)}
+              {truncate(movie?.overview, 150)}
             </h1>
         </div> 
 
